@@ -4,13 +4,11 @@
 !/.eskk
 !/.vimrc
 !/.gvimrc
-!/.vim
+!/.vim/bundle/neobundle.vim
 !/.gitignore
 !/.gitconfig
 !/.gitmodules
 
-/.vim/.netrwhist
-/.vim/.netrwhist~
 /.eskk/log
 /.eskk/SKK-JISYO.U
 
