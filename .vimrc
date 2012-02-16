@@ -48,6 +48,7 @@ colorscheme desert
 set encoding=utf-8
 set termencoding=utf-8
 let $LANG='ja_jp.utf-8'
+set ambiwidth=double
 
 "" Plugin settings
 " eskk
