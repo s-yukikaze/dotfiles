@@ -2,5 +2,10 @@ set ruler
 set background=light
 colorscheme desert
 
-"LoadFont 'z:/vimfiles/fonts/migu-1m-regular.ttf'
+:try
+  call dynfont#load(expand('$DOTVIM/fonts/Ricty-Regular.ttf'))
+  set guifont=Ricty:h13.5
+:catch
+  " do nohitng
+:endtry
 
