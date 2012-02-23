@@ -23,6 +23,7 @@ NeoBundle 'https://github.com/Shougo/unite.vim'
 NeoBundle 'https://github.com/Shougo/vimproc'
 NeoBundle 'https://github.com/Shougo/vimshell'
 NeoBundle 'https://github.com/Shougo/vimfiler'
+NeoBundle 'https://github.com/Shougo/neocomplcache'
 NeoBundle 'https://github.com/tyru/eskk.vim'
 NeoBundle 'https://github.com/s-yukikaze/vinarise'
 
@@ -46,7 +47,11 @@ colorscheme desert
 
 "" default UTF-8 support
 set encoding=utf-8
-set termencoding=utf-8
+if has('win32') || has('win64')
+  set termencoding=cp932
+else
+  set termencoding=utf-8
+end
 let $LANG='ja_jp.utf-8'
 set ambiwidth=double
 
