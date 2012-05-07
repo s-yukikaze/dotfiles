@@ -15,9 +15,6 @@ if has('vim_starting')
 endif
 
 "" Managed plugins
-" Neobundle itself
-NeoBundle 'https://github.com/Shougo/neobundle.vim'
-
 " repos on github
 NeoBundle 'https://github.com/Shougo/unite.vim'
 NeoBundle 'https://github.com/Shougo/vimproc'
