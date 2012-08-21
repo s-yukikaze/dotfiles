@@ -64,5 +64,5 @@ nnoremap <silent> ,psh :VimShellInteractive Powershell -Command -<CR>
 vnoremap <silent> ,ss :VimShellSendString<CR>
 
 " vimfiler
-nnoremap <silent> ,vf :VimFiler ~/<CR>
+nnoremap <silent> ,vf :VimFiler ~<CR>
 
