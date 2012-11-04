@@ -22,6 +22,7 @@ NeoBundle 'https://github.com/Shougo/vimshell'
 NeoBundle 'https://github.com/Shougo/vimfiler'
 NeoBundle 'https://github.com/tyru/eskk.vim'
 NeoBundle 'https://github.com/s-yukikaze/vinarise'
+NeoBundle 'https://github.com/rbtnn/hexript.vim.git'
 
 " repos on vim-scripts
 NeoBundle 'https://github.com/vim-scripts/Darcs'
