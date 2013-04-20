@@ -1,11 +1,9 @@
 /*
 /.*
-/doc/tags
 
 !/.eskk
 !/.vimrc
 !/.gvimrc
-!/.vim/bundle/neobundle.vim
 !/.gitignore
 !/.gitconfig
 !/.gitmodules
