@@ -8,6 +8,11 @@
 !/.gitconfig
 !/.gitmodules
 
+!/.vim
+/.vim/*
+!/.vim/bundle
+/.vim/bundle/*
+!/.vim/bundle/neobundle.vim
+
 /.eskk/log
 /.eskk/SKK-JISYO.U
-
