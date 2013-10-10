@@ -1,5 +1,4 @@
 "" Initialize Neobundle
-set nocompatible
 filetype plugin indent off
 
 if has('win32') || has('win64')
