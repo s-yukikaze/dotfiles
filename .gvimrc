@@ -1,5 +1,4 @@
 set ruler
-set background=light
 colorscheme desert
 
 :try
@@ -9,4 +8,3 @@ colorscheme desert
 :catch
   " do nohitng
 :endtry
-

@@ -9,36 +9,48 @@ endif
 
 if has('vim_starting')
    set runtimepath+=$DOTVIM/bundle/neobundle.vim
-
    call neobundle#rc(expand('$DOTVIM/bundle'))
 endif
 
 "" Managed plugins
 " repos on github
-NeoBundle 'https://github.com/Shougo/unite.vim'
-NeoBundle 'https://github.com/Shougo/vimproc'
-NeoBundle 'https://github.com/Shougo/vimshell'
-NeoBundle 'https://github.com/Shougo/vimfiler'
-NeoBundle 'https://github.com/tyru/eskk.vim'
-NeoBundle 'https://github.com/s-yukikaze/vinarise'
-NeoBundle 'https://github.com/rbtnn/hexript.vim.git'
-NeoBundle 'https://github.com/itchyny/lightline.vim'
+let g:neobundle#install_process_timeout=600
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'tyru/eskk.vim'
+NeoBundle 'Shougo/vinarise'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundleCheck
 
 filetype plugin indent on
 
 "" Initial options
-syntax on
-set bs=indent,eol,start
+" Input
+set backspace=indent,eol,start
+" Buffer
 set number
 set ruler
-set title
-set background=light
+set notitle
+set cursorline
+syntax on
+" Status
+set laststatus=2
+" File
 set nobackup
 set noswapfile
+set hidden
 set shellslash
-set laststatus=2
 
-colorscheme desert
+colorscheme desert 
 
 "" default UTF-8 support
 set encoding=utf-8
@@ -130,4 +142,3 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
-
