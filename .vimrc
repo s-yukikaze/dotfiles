@@ -16,6 +16,9 @@ endif
 " repos on github
 let g:neobundle#install_process_timeout=600
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shouge/neomru.vim', {
+      \ 'depends' : 'Shougo/unite.vim'
+      \ }
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
