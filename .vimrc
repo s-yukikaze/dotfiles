@@ -22,7 +22,7 @@ NeoBundle 'Shouge/neomru.vim', {
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : (executable('mingw32-make') ?
-      \                    'mingw32-make -Bf make_minw32.mak' :
+      \                    'mingw32-make -Bf make_mingw32.mak' :
       \                    'nmake -f make_mingw32.mak nodebug=1'),
       \     'cygwin' : 'make -f make_cygwin.mak',
       \     'mac' : 'make -f make_mac.mak',
