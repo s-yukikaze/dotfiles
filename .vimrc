@@ -52,6 +52,7 @@ set laststatus=2
 " File
 set nobackup
 set noswapfile
+set noundofile
 set hidden
 set shellslash
 
