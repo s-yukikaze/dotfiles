@@ -21,14 +21,14 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shouge/neomru.vim', {
       \ 'depends' : 'Shougo/unite.vim'
       \ }
-NeoBundle 'Shougo/vimproc.vim', {
+execute "NeoBundle 'Shougo/vimproc.vim'," . string({
       \ 'build' : {
       \     'windows' : vimproc_updcmd,
       \     'cygwin' : 'make -f make_cygwin.mak',
       \     'mac' : 'make -f make_mac.mak',
       \     'unix' : 'make -f make_unix.mak',
       \    },
-      \ }
+      \ })
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'tyru/eskk.vim'
