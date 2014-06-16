@@ -15,15 +15,15 @@ endif
 "" Managed plugins
 " repos on github
 let g:neobundle#install_process_timeout=600
+let vimproc_updcmd = has('win64') ?
+      \ 'tools\\update-dll-mingw 64' : 'tools\\update-dll-mingw 32'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shouge/neomru.vim', {
       \ 'depends' : 'Shougo/unite.vim'
       \ }
-NeoBundle 'Shougo/vimproc', {
+NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
-      \     'windows' : (executable('mingw32-make') ?
-      \                    'mingw32-make -Bf make_mingw32.mak' :
-      \                    'nmake -f make_mingw32.mak nodebug=1'),
+      \     'windows' : vimproc_updcmd,
       \     'cygwin' : 'make -f make_cygwin.mak',
       \     'mac' : 'make -f make_mac.mak',
       \     'unix' : 'make -f make_unix.mak',
