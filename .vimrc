@@ -9,11 +9,11 @@ endif
 
 if has('vim_starting')
    set runtimepath+=$DOTVIM/bundle/neobundle.vim
-   call neobundle#rc(expand('$DOTVIM/bundle'))
 endif
 
 "" Managed plugins
 " repos on github
+call neobundle#begin(expand('$DOTVIM/bundle'))
 let g:neobundle#install_process_timeout=600
 let vimproc_updcmd = has('win64') ?
       \ 'tools\\update-dll-mingw 64' : 'tools\\update-dll-mingw 32'
@@ -34,9 +34,10 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'tyru/eskk.vim'
 NeoBundle 'Shougo/vinarise'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundleCheck
+call neobundle#end()
 
 filetype plugin indent on
+NeoBundleCheck
 
 "" Initial options
 " Input
