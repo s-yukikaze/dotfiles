@@ -18,7 +18,7 @@ let g:neobundle#install_process_timeout=600
 let vimproc_updcmd = has('win64') ?
       \ 'tools\\update-dll-mingw 64' : 'tools\\update-dll-mingw 32'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shouge/neomru.vim', {
+NeoBundle 'Shougo/neomru.vim', {
       \ 'depends' : 'Shougo/unite.vim'
       \ }
 execute "NeoBundle 'Shougo/vimproc.vim'," . string({
