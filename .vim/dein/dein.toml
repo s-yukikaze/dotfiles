@@ -1,0 +1,21 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+
+  [plugins.build]
+  windows = 'tools\\update-dll-mingw'
+  mac = 'make -f make_mac.mak'
+  linux = 'make'
+
+
+[[plugins]]
+repo = 'tyru/eskk.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 's-yukikaze/dynfont'
+

@@ -1,45 +1,42 @@
-"" Initialize Neobundle
-filetype plugin indent off
+"" Initialize
+if &compatible
+    set nocompatible
+endif
 
 if has('win32') || has('win64')
-    let $DOTVIM = expand('~/vimfiles')
+    let s:dotvim_dir = expand('~/vimfiles')
 else
-    let $DOTVIM = expand('~/.vim')
+    let s:dotvim_dir = expand('~/.vim')
 endif
 
-if has('vim_starting')
-   set runtimepath+=$DOTVIM/bundle/neobundle.vim
+"" Manage plugins
+let s:dein_dir = s:dotvim_dir . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    execute "set runtimepath +=" . s:dein_repo_dir
 endif
 
-"" Managed plugins
-" repos on github
-call neobundle#begin(expand('$DOTVIM/bundle'))
-let g:neobundle#install_process_timeout=600
-let vimproc_updcmd = has('win64') ?
-      \ 'tools\\update-dll-mingw 64' : 'tools\\update-dll-mingw 32'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim', {
-      \ 'depends' : 'Shougo/unite.vim'
-      \ }
-execute "NeoBundle 'Shougo/vimproc.vim'," . string({
-      \ 'build' : {
-      \     'windows' : vimproc_updcmd,
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ })
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'tyru/eskk.vim'
-NeoBundle 'Shougo/vinarise'
-NeoBundle 'itchyny/lightline.vim'
-call neobundle#end()
+call dein#begin(s:dein_dir)
+let s:toml      = s:dein_dir . '/dein.toml'
+let s:lazy_toml = s:dein_dir . '/dein_lazy.toml'
 
-filetype plugin indent on
-NeoBundleCheck
+if dein#load_cache([expand('<sfile>'), s:toml, s:lazy_toml])
+    call dein#load_toml(s:toml,      {'lazy': 0})
+    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+    call dein#save_cache()
+endif
 
-"" Initial options
+call dein#end()
+
+if dein#check_install()
+    call dein#install()
+endif
+
+"" Set options
 " Input
 set backspace=indent,eol,start
 " Buffer
