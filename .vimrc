@@ -10,27 +10,25 @@ else
 endif
 
 "" Manage plugins
-let s:dein_dir = s:dotvim_dir . '/dein'
+let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-if &runtimepath !~# '/dein.vim'
-    if !isdirectory(s:dein_repo_dir)
-        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-    endif
-    execute "set runtimepath +=" . s:dein_repo_dir
+if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
+execute "set runtimepath^=" . s:dein_repo_dir
 
-call dein#begin(s:dein_dir)
-let s:toml      = s:dein_dir . '/dein.toml'
-let s:lazy_toml = s:dein_dir . '/dein_lazy.toml'
 
-if dein#load_cache([expand('<sfile>'), s:toml, s:lazy_toml])
+if dein#load_state(s:dein_dir)
+    let s:toml      = s:dotvim_dir . '/dein/dein.toml'
+    let s:lazy_toml = s:dotvim_dir . '/dein/dein_lazy.toml'
+    call dein#begin(s:dein_dir, [$MYVIMRC, s:toml, s:lazy_toml])
     call dein#load_toml(s:toml,      {'lazy': 0})
     call dein#load_toml(s:lazy_toml, {'lazy': 1})
-    call dein#save_cache()
+    call dein#end()
+    call dein#save_state()
 endif
 
-call dein#end()
 
 if dein#check_install()
     call dein#install()
@@ -67,6 +65,10 @@ let $LANG='ja_jp.utf-8'
 set ambiwidth=double
 
 "" Plugin settings
+" neomru
+nnoremap <silent> ,ud :Unite directory_mru<CR>
+nnoremap <silent> ,uf :Unite file_mru<CR>
+
 " eskk
 set imdisable
 let g:eskk#directory = expand('~/eskk')
