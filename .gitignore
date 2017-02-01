@@ -1,21 +1,18 @@
 /*
-/.*
 
-!/.eskk
 !/.vimrc
 !/.gvimrc
 !/.gitignore
 !/.gitconfig
 !/.gitmodules
 
+!/.eskk/
+/.eskk/*
+!/.eskk/SKK-JISYO.L
+
 !/.vim/
 /.vim/*
-/.vim/.*
 !/.vim/dein/
-/.vim/dein/*
-/.vim/dein/.*
-!/.vim/dein/dein.toml
-!/.vim/dein/dein_lazy.toml
+!/.vim/rplugin/
 
-/.eskk/log
-/.eskk/SKK-JISYO.U
+__pycache__/

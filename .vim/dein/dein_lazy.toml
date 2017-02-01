@@ -1,9 +1,17 @@
 [[plugins]]
-repo = 'Shougo/unite.vim'
+repo = 'Shougo/denite.nvim'
+depends = ['neomru.vim']
+on_event = 'BufRead'
+hook_add = '''
+nnoremap <silent> ,ud :Denite directory_mru<CR>
+nnoremap <silent> ,uf :Denite file_mru<CR>
+'''
+hook_post_source = '''
+call denite#custom#source('directory_mru', 'matchers', ['matcher_fuzzy'])
+'''
 
 [[plugins]]
-repo ='Shougo/neomru.vim'
-on_source = ['unite.vim']
+repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'Shougo/vinarise'

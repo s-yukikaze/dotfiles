@@ -65,10 +65,6 @@ let $LANG='ja_jp.utf-8'
 set ambiwidth=double
 
 "" Plugin settings
-" neomru
-nnoremap <silent> ,ud :Unite directory_mru<CR>
-nnoremap <silent> ,uf :Unite file_mru<CR>
-
 " eskk
 set imdisable
 let g:eskk#directory = expand('~/eskk')
