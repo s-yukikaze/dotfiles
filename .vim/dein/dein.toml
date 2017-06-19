@@ -22,12 +22,3 @@ repo = 'tyru/eskk.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-
-[[plugins]]
-repo = 's-yukikaze/dynfont'
-if = '''dein#util#_is_windows()'''
-hook_post_update = '''
-  if dein#util#_is_windows()
-    let g:dein#plugin.build = 'mingw32-make -f Makefile.mingw'
-  endif
-'''
