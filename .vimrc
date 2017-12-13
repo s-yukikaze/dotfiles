@@ -5,8 +5,15 @@ endif
 
 if has('win32') || has('win64')
     let s:dotvim_dir = expand('~/vimfiles')
+    let s:vimrc_local = expand('~/_vimrc_local')
 else
     let s:dotvim_dir = expand('~/.vim')
+    let s:vimrc_local = expand('~/.vimrc_local')
+endif
+
+"" Load local setting
+if filereadable(s:vimrc_local)
+    execute 'source '.fnameescape(s:vimrc_local)
 endif
 
 "" Manage plugins
