@@ -74,9 +74,21 @@ set ambiwidth=double
 "" Plugin settings
 " eskk
 set imdisable
+let s:eskk_large_dictionary_uri = 'http://openlab.ring.gr.jp/skk/skk/dic/SKK-JISYO.L'
 let g:eskk#directory = expand('~/eskk')
 let g:eskk#dictionary = { 'path': expand('~/eskk/SKK-JISYO.U'), 'sorted': 0, 'encoding': 'utf-8', }
 let g:eskk#large_dictionary = { 'path': expand('~/eskk/SKK-JISYO.L'), 'sorted': 1, 'encoding': 'euc-jp', }
+" Download the large dictionary if it doesn't exist.
+if !filereadable(g:eskk#large_dictionary.path)
+  if !isdirectory(g:eskk#directory)
+    call mkdir(g:eskk#directory, "p")
+  endif
+  if has('win32') || has('win64')
+    call system('powershell -Command "Invoke-WebRequest -Uri \"' . s:eskk_large_dictionary_uri . '\" -OutFile \"' . g:eskk#large_dictionary.path . '\"')
+  else
+    call system('curl -L "' . s:eskk_large_dictionary_uri . '" -o "' . g:eskk#large_dictionary.path . '"')
+  endif
+endif
 
 " vimshell
 nnoremap <silent> ,sh :VimShell<CR>
