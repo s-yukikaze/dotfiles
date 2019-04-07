@@ -1,5 +1,5 @@
 set ruler
-colorscheme desert
+colorscheme molokai
 
 source $VIMRUNTIME/delmenu.vim
 set langmenu=ja_jp.utf-8
